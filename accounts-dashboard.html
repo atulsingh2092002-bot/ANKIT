@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accounts Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+        .dashboard {
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn-export {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard">
+            <h1 class="header">Accounts Dashboard</h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>$1,500</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Jane Smith</td>
+                        <td>jane@example.com</td>
+                        <td>$2,300</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Sam Johnson</td>
+                        <td>sam@example.com</td>
+                        <td>$750</td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary btn-export" onclick="exportPDF()">Export to PDF</button>
+        </div>
+    </div>
+    <script>
+        function exportPDF() {
+            const element = document.querySelector('.dashboard');
+            html2pdf()
+                .from(element)
+                .save('Accounts_Dashboard.pdf');
+        }
+    </script>
+</body>
+</html>
